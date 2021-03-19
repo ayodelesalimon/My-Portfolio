@@ -3,6 +3,6 @@
 
  I built this using just HTML, CSS and Javascript.
 
- Here is the live URL : https://ayodelesalimon.github.io/My-Portfolio/
+ Here is the live URL : 
 
 
