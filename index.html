@@ -1,262 +1,451 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>AYODELE SALIMONU | Front End Developer & Flutter Developer</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+    <title>Mobile App Developer Portfolio</title>
+    <style>
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f8f8;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(to right, #2c3e50, #4ca1af);
+            color: white;
+            padding: 60px 0 40px;
+            text-align: center;
+        }
+        
+        .header-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .header-content p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* Sections */
+        section {
+            padding: 60px 0;
+        }
+        
+        section h2 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 40px;
+            color: #2c3e50;
+        }
+        
+        /* About Section */
+        .about {
+            background-color: white;
+        }
+        
+        /* Projects Section */
+        .projects {
+            background-color: #f8f8f8;
+        }
+        
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .project-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .project-img {
+            width: 100%;
+            height: 180px;
+            background-color: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            font-weight: bold;
+        }
+        
+        .project-info {
+            padding: 20px;
+        }
+        
+        .project-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+        
+        .project-location {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 10px;
+        }
+        
+        .project-links {
+            margin-top: 15px;
+            display: flex;
+            gap: 10px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 8px 16px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+        }
+        
+        .btn-android {
+            background-color: #4CAF50;
+            color: white;
+        }
+        
+        .btn-android:hover {
+            background-color: #3e8e41;
+        }
+        
+        .btn-ios {
+            background-color: #2196F3;
+            color: white;
+        }
+        
+        .btn-ios:hover {
+            background-color: #0b7dda;
+        }
+        
+        /* Skills Section */
+        .skills {
+            background-color: white;
+        }
+        
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .skill-category h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: #2c3e50;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #4ca1af;
+        }
+        
+        .skill-list {
+            list-style-type: none;
+        }
+        
+        .skill-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        /* Contact Section */
+        .contact {
+            background-color: #2c3e50;
+            color: white;
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 4px;
+        }
+        
+        .contact-form textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .contact-form button {
+            background-color: #4ca1af;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+        }
+        
+        .contact-form button:hover {
+            background-color: #3a8a96;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #1a252f;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .project-grid,
+            .skills-container,
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+            
+            section {
+                padding: 40px 0;
+            }
+        }
+    </style>
 </head>
-
 <body>
-
-    <!-- HEADER -->
+    <!-- Header Section -->
     <header>
-        <div class="container-lg">
-            <nav id="navbar">
-                <a href="index.html" class="logo">Home</a>
-
-                <ul class="nav-list">
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.html#about">About Me</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.html#projects">Projects</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.html#contact">Contact</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link resume-btn" href="AyodeleCV.pdf">Resume</a>
-                    </li>
-                </ul>
-                <div class="menu-toggle">
-                    <i class="fas fa-bars"></i>
-                    <i class="fas fa-times"></i>
-                </div>
-            </nav>
+        <div class="container header-content">
+            <h1>Mobile App Developer</h1>
+            <p>Specialized in creating innovative mobile applications with focus on user experience and functionality</p>
         </div>
     </header>
-
-    <!-- HERO SECTION -->
-
-    <section class="hero">
-        <div class="container">
-            <h5 class="greetings">Hi👋, I'm</h5>
-            <h1 class="name">AYODELE SALIMONU</h1>
-            <h4 class="title">Front End Developer & Flutter Developer</h4>
-            <div class="intro-box">
-                <p class="intro-text">
-                   I'm a Web & Mobile Devleoper based in Lagos, Nigeria. I build beautiful
-                   web and mobile applications.
-                    .
-                </p>
-            </div>
-            <a class="btn btn-filled" href="index.html#projects">See my work</a>
-            
-        </div>
-    </section>
-
-    <!-- ABOUT SECTION -->
-
-    <section id="about" class="about">
+    
+    <!-- About Section -->
+    <section class="about">
         <div class="container">
             <h2>About Me</h2>
-            <div class="container-about">
-                <div class="about_details">
-                    <p>I'm a self-taught developer. Am passionate about clean code
-                        and
-                        how we can turn code into beautiful websites and web apps that provide awesome experiences.
-                    </p>
-                    <p>In my spare time I like to read thriller series, play video games and watch documentaries.
-                        I'm
-                        always down for hearing about new projects, so feel free to drop me a line.</p>
-                    <p>Technologies that I use :</p>
-                    <div class="stack">
-                        <ul>
-
-                            <li>
-                               Flutter
-                           </li>
-                            <li>
-                              
-                              Javascript
-                            </li>
-                            <li>
-                             
-                               Java
-                            </li>
-                        </ul>
-                        <ul>
-                            <li>
-                               Git
-                             
-                            </li>
-                            <li>
-                              
-                               HTML, CSS & Bootstrap
-                            </li>
-                            <li>
-                              
-                              Firebase
-                            </li>
-                        </ul>
+            <p>I am a skilled mobile application developer specializing in creating versatile, user-friendly applications across various industries. With extensive experience developing solutions for financial management, logistics, utilities, security, and religious organizations, I bring a diverse skill set to every project.</p>
+            <br>
+            <p>My focus is on delivering intuitive, efficient applications that solve real-world problems while maintaining high standards of design and functionality. Based in Nigeria, I've successfully developed and launched multiple applications on both Android and iOS platforms.</p>
+        </div>
+    </section>
+    
+    <!-- Projects Section -->
+    <section class="projects">
+        <div class="container">
+            <h2>My Projects</h2>
+            <div class="project-grid">
+                <!-- Project 1 -->
+                <div class="project-card">
+                    <div class="project-img">Kashia App</div>
+                    <div class="project-info">
+                        <h3>Kashia</h3>
+                        <div class="project-location">Lagos, Nigeria</div>
+                        <p>A digital accountancy app made to manage sales and expenses, create invoices & receipts, track debts and obligations, and stay on top of your inventory.</p>
+                        <div class="project-links">
+                            <a href="https://play.google.com/store/apps/details?id=com.mzuri.MzuriMobile" class="btn btn-android" target="_blank">Android</a>
+                            <a href="https://apps.apple.com/ng/app/kashia-business-accounting/id1573906463" class="btn btn-ios" target="_blank">iOS</a>
+                        </div>
                     </div>
                 </div>
-                <div class="about_image">
-                    <img src="images/aaa.jpg" alt="ayodele salimonu">
+                
+                <!-- Project 2 -->
+                <div class="project-card">
+                    <div class="project-img">MoveBot App</div>
+                    <div class="project-info">
+                        <h3>MoveBot</h3>
+                        <div class="project-location">Lagos, Nigeria</div>
+                        <p>A delivery app made to simplify the movement of goods from one location to another.</p>
+                        <div class="project-links">
+                            <a href="https://play.google.com/store/apps/details?id=com.driver.movebot.ng.app&hl=en_NZ&gl=US" class="btn btn-android" target="_blank">Android</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="project-card">
+                    <div class="project-img">Mbiller App</div>
+                    <div class="project-info">
+                        <h3>Mbiller</h3>
+                        <div class="project-location">Lagos, Nigeria</div>
+                        <p>A utility app made to simplify the payment of different utility bills right from the comfort of your phone.</p>
+                        <div class="project-links">
+                            <a href="https://play.google.com/store/apps/details?id=com.bt.mbiller" class="btn btn-android" target="_blank">Android</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 4 -->
+                <div class="project-card">
+                    <div class="project-img">Gemade App</div>
+                    <div class="project-info">
+                        <h3>Gemade App</h3>
+                        <div class="project-location">Lagos, Nigeria</div>
+                        <p>A security app that allows residents to invite known and unknown guests by generating a 5-digit code which will be validated with the security app.</p>
+                        <div class="project-links">
+                            <a href="https://play.google.com/store/apps/details?id=com.wk.gemade.app" class="btn btn-android" target="_blank">Android</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 5 -->
+                <div class="project-card">
+                    <div class="project-img">CONAIO App</div>
+                    <div class="project-info">
+                        <h3>CONAIO APP</h3>
+                        <div class="project-location">Abuja, Nigeria</div>
+                        <p>A church management app that handles the day-to-day activities of church congregation, where donations can be made and other activities managed.</p>
+                        <div class="project-links">
+                            <a href="https://play.google.com/store/apps/details?id=org.anglican_ng.android.conaio" class="btn btn-android" target="_blank">Android</a>
+                            <a href="https://apps.apple.com/us/app/conaio-app/id1617445150?platform=iphone" class="btn btn-ios" target="_blank">iOS</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 6 -->
+                <div class="project-card">
+                    <div class="project-img">Lapis LM App</div>
+                    <div class="project-info">
+                        <h3>Lapis Lazuli Ministries</h3>
+                        <div class="project-location">Lagos, Nigeria</div>
+                        <p>A church management app that aims to achieve all church activities on the app.</p>
+                        <div class="project-links">
+                            <a href="https://play.google.com/store/apps/details?id=lapislm.ministries.app" class="btn btn-android" target="_blank">Android</a>
+                            <a href="https://apps.apple.com/us/app/lapis-lm/id1613690417?platform=iphone" class="btn btn-ios" target="_blank">iOS</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 7 -->
+                <div class="project-card">
+                    <div class="project-img">SFGHB App</div>
+                    <div class="project-info">
+                        <h3>SFGHB</h3>
+                        <div class="project-location">Lagos, Nigeria</div>
+                        <p>A spiritual content application for sharing ministry resources and materials.</p>
+                        <div class="project-links">
+                            <a href="https://play.google.com/store/apps/details?id=godsheartbeat.net" class="btn btn-android" target="_blank">Android</a>
+                            <a href="https://apps.apple.com/us/app/sfghb/id1564125722?platform=iphone" class="btn btn-ios" target="_blank">iOS</a>
+                        </div>
+                    </div>
+                </div>
+
+                 <!-- Project 7 -->
+                <div class="project-card">
+                    <div class="project-img">SFGHB App</div>
+                    <div class="project-info">
+                        <h3>SFGHB</h3>
+                        <div class="project-location">Lagos, Nigeria</div>
+                        <p>A spiritual content application for sharing ministry resources and materials.</p>
+                        <div class="project-links">
+                            <a href="https://play.google.com/store/apps/details?id=godsheartbeat.net" class="btn btn-android" target="_blank">Android</a>
+                            <a href="https://apps.apple.com/us/app/sfghb/id1564125722?platform=iphone" class="btn btn-ios" target="_blank">iOS</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- PROJECTS SECTION -->
-
-    <section id="projects" class="projects">
+    
+    <!-- Skills Section -->
+    <section class="skills">
         <div class="container">
-            <h2>Some Stuff I’ve Built 📁</h2>
-            <div class="projects_grid">
-                <div class="project_box">
-                    <img src="images/covid.png" alt="covid">
-                    <div class="project_details">
-                        <div class="project_links">
-                            <a title="GitHub" href="https://github.com/abdulsamadayoade/Furnish" target="_blank">
-                                <i class="fab fa-github"></i>
-                            </a>
-                            <a title="External" href="https://ayodelesalimon.github.io/Covid19-Nigeria/" target="_blank">
-                                <i class="fas fa-external-link-alt"></i>
-                            </a>
-                        </div>
-                        <span class="project_name">Covid 19 Updates</span>
-                      
-                    </div>
-                   
+            <h2>Skills & Expertise</h2>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3>Mobile Development</h3>
+                    <ul class="skill-list">
+                        <li>Android Development</li>
+                        <li>iOS Development</li>
+                        <li>React Native</li>
+                        <li>Flutter</li>
+                    </ul>
                 </div>
-                <div class="project_box project_2">
-                    <img src="images/1g.png" alt="Weather">
-                    <div class="project_details">
-                        <div class="project_links">
-                            <a title="GitHub" href="https://github.com/ayodelesalimon/iquote_app" target="_blank">
-                                <i class="fab fa-github"></i>
-                            </a>
-                            <a title="External" href="https://play.google.com/store/apps/details?id=com.kalicode.iquote.minions" target="_blank">
-                             <i class="fab fa-android"></i>
-                            </a>
-                           
-                        </div>
-                        <span class="project_name">iQuote App</span>
-                    </div>
-                </div>
-                <div class="project_box project_3">
-                    <img src="images/show.png" alt="">
-                    <div class="project_details">
-                        <div class="project_links">
-                            <a title="GitHub" href="https://github.com/ayodelesalimon/show_my_network" target="_blank">
-                                <i class="fab fa-github"></i>
-                            </a>
-                            <a title="External" href="https://play.google.com/store/apps/details?id=com.kalicode.show_my_network" target="_blank">
-                                <i class="fab fa-android"></i>
-                               </a>
-                        </div>
-                        <span class="project_name">Show My Network</span>
-                    </div>
                 
+                <div class="skill-category">
+                    <h3>Programming Languages</h3>
+                    <ul class="skill-list">
+                        <li>Java</li>
+                        <li>Kotlin</li>
+                        <li>Swift</li>
+                        <li>JavaScript/TypeScript</li>
+                        <li>Dart</li>
+                    </ul>
                 </div>
-            </div>
-
-            <div class="projects_grid">
-                <!-- <div class="project_box">
-                    <img src="images/covid.png" alt="covid">
-                    <div class="project_details">
-                        <div class="project_links">
-                            <a title="GitHub" href="https://github.com/abdulsamadayoade/Furnish" target="_blank">
-                                <i class="fab fa-github"></i>
-                            </a>
-                            <a title="External" href="https://ayodelesalimon.github.io/Covid19-Nigeria/" target="_blank">
-                                <i class="fas fa-external-link-alt"></i>
-                            </a>
-                        </div>
-                        <span class="project_name">Covid 19 Updates</span>
-                    </div>
-                </div> -->
-                <div class="project_box project_2">
-                    <img src="images/weather.png" alt="Weather">
-                    <div class="project_details">
-                        <div class="project_links">
-                            <a title="GitHub" href="https://github.com/ayodelesalimon/weather_app_vue" target="_blank">
-                                <i class="fab fa-github"></i>
-                            </a>
-                            <a title="External" href="https://knoweather-app.netlify.app/" target="_blank">
-                                <i class="fas fa-external-link-alt"></i>
-                            </a>
-                        </div>
-                        <span class="project_name">Weather App</span>
-                    </div>
-                </div>
-                <div class="project_box project_3">
-                    <img src="images/claculator.png" alt="La-Hotel">
-                    <div class="project_details">
-                        <div class="project_links">
-                            <a title="GitHub" href="https://github.com/ayodelesalimon/vue_calculator" target="_blank">
-                                <i class="fab fa-github"></i>
-                            </a>
-                            <a title="External" href="https://calcvue.netlify.app/" target="_blank">
-                                <i class="fas fa-external-link-alt"></i>
-                            </a>
-                        </div>
-                        <span class="project_name">Calculator</span>
-                    </div>
                 
+                <div class="skill-category">
+                    <h3>Other Skills</h3>
+                    <ul class="skill-list">
+                        <li>UI/UX Design</li>
+                        <li>API Integration</li>
+                        <li>Database Management</li>
+                        <li>Version Control (Git)</li>
+                        <li>Project Management</li>
+                    </ul>
                 </div>
-            </div>
-            <div class="more-projects">
-                <a href="https://github.com/ayodelesalimon?tab=repositories" class="btn secondary-btn"
-                    target="_blank">See More
-                    Projects</a>
             </div>
         </div>
     </section>
-
-    <!-- CONTACT SECTION -->
-
-    <section id="contact" class="contact">
+    
+    <!-- Contact Section -->
+    <section class="contact">
         <div class="container">
+            <h2>Get In Touch</h2>
             <div class="contact-container">
-                <h2 class="contact-heading">Need My Service?</h2>
-                <p>I'm currently available for freelance work. If you need help on your project or just fancy saying
-                    hi,
-                    don't hesitate to drop a message, I'll try my best to get back to you!</p>
-                <div class="more-projects">
-                    <a class="btn secondary-btn mail" href="mailto:ayodele951@gmail.com" target="_blank">Send a
-                        Message</a>
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <p>Feel free to reach out to me for collaboration, project inquiries, or just to say hello. I'm always interested in new opportunities and challenges.</p>
+                    <br>
+                    <p>Email: ayodele951@gmail.com</p>
+                    <p>Phone: +234 8027168244</p>
+                    <p>Location: Lagos, Nigeria</p>
+                </div>
+                
+                <div class="contact-form">
+                    <h3>Send Message</h3>
+                    <form id="contactForm">
+                        <input type="text" placeholder="Your Name" required>
+                        <input type="email" placeholder="Your Email" required>
+                        <input type="text" placeholder="Subject">
+                        <textarea placeholder="Your Message" required></textarea>
+                        <button type="submit">Send Message</button>
+                    </form>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- FOOTER SECTION -->
-
+    
+    <!-- Footer -->
     <footer>
         <div class="container">
-            <div class="footer_container-inner">
-                <div class="social_links">
-                    <a class="social_link" href="https://facebook.com/ayodelesalimon"><i
-                            class="fab fa-facebook-f"></i></a>
-                    <a class="social_link" href="https://twitter.com/kali_code"><i class="fab fa-twitter"></i></a>
-                    <!-- <a class="social_link" href="https://instagram.com/remitheog"><i class="fab fa-instagram"></i></a> -->
-                    <a class="social_link" href="https://github.com/ayodelesalimon"><i class="fab fa-github"></i></a>
-                    <a class="social_link" href="https://wa.me/+2348027168244"><i class="fab fa-whatsapp"></i></a>
-                </div>
-                <div class="attribute">
-                    <p>Designed &amp; Built by Ayodele Salimonu</p>
-                </div>
-            </div>
+            <p>&copy; 2025. All Rights Reserved.</p>
         </div>
     </footer>
-    <script src="https://unpkg.com/scroll-out/dist/scroll-out.min.js"></script>
-    <script src="app.js"></script>
 </body>
-
 </html>
